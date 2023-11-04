@@ -12,11 +12,20 @@
     
     function initMap() {
             
-            const coordinates = { lat: 40.689, lng: -74.044 };
+            const coordinates = { lat: 37.354839, lng: -77.391777 };
            
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 13,
                 center: coordinates,
+            });
+        const marker = new google.maps.Marker({
+               position: coordinates,
+               map: map,
+           });
+        const circle = new google.maps.Circle({
+                map,
+                center: coordinates,
+                radius: 600,
             });
         }
 window.initMap = initMap;
