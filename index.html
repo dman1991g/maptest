@@ -2,36 +2,30 @@
 <html lang="en">
 
 <head>
-    <title>Hello Leaflet</title>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  <title>Hello Leaflet</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 </head>
 
 <body>
+  <div id="map" style="width: 600px; height: 400px;"></div>
+  <script>
+    const map = L.map('map').setView([39.564461, //latitude
+       -86.096611
+      ], //longitude
+      13); //zoom
+    L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+      attribution: 'Copyright Google Maps'
+    }).addTo(map);
     
-    <script>
-
-        const map = L.map('map').setView([39.564461, //latitude
-            -86.096611], //longitude
-            13);    //zoom
-
-         L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: 'Copyright Google Maps'
-            }).addTo(map);
-
-         var marker = L.marker([39.564461, -86.096611]).addTo(map);
+    var marker = L.marker([39.564461, -86.096611]).addTo(map);
     var circle = L.circle([39.564461, -86.096611], {
       radius: 600
     }).addTo(map);
 
-
-</script>
-    <div id="map" style="width: 600px; height: 400px;"></div>
+  </script>
 </body>
 
 </html>
